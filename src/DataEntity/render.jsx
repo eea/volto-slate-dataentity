@@ -11,14 +11,19 @@ export const DataEntityElement = ({
   ...rest
 }) => {
   const { data = {} } = element;
-  const { url, column, index } = data;
+  const { provider_url, column } = data;
 
+  // key={index}
   return (
     <>
       {mode === 'view' ? (
         <span {...rest}>
           {wrapInlineMarkupText(children, (c) => (
-            <DataConnectedValue url={url} column={column} key={index} />
+            <DataConnectedValue
+              url={provider_url}
+              column={column}
+              key="COUNTRY"
+            />
           ))}
         </span>
       ) : (

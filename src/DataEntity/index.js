@@ -29,7 +29,7 @@ export default function install(config) {
     editSchema: DataEntitySchema,
     schemaProvider: SchemaProvider,
     extensions: [withDataEntity],
-    hasValue: (formData) => !!formData.footnote,
+    hasValue: (data) => !!data.provider_url,
     toolbarButtonIcon: collectionSVG,
     title: 'Data entity',
     messages,
