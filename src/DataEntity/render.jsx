@@ -2,6 +2,7 @@ import React from 'react';
 import { Popup } from 'semantic-ui-react';
 import DataConnectedValue from 'volto-datablocks/DataConnectedValue';
 import { wrapInlineMarkupText } from 'volto-slate/utils';
+import { v4 as uuid } from 'uuid';
 
 export const DataEntityElement = ({
   attributes,
@@ -22,7 +23,7 @@ export const DataEntityElement = ({
             <DataConnectedValue
               url={provider_url}
               column={column}
-              key="COUNTRY"
+              key={uuid()}
             />
           ))}
         </span>
