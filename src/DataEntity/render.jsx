@@ -1,6 +1,6 @@
 import React from 'react';
 import { Popup } from 'semantic-ui-react';
-import DataConnectedValue from 'volto-datablocks/DataConnectedValue';
+import { DataConnectedValue } from 'volto-datablocks/Utils';
 import { wrapInlineMarkupText } from 'volto-slate/utils';
 import { v4 as uuid } from 'uuid';
 
