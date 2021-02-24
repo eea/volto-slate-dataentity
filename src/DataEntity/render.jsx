@@ -12,7 +12,13 @@ export const DataEntityElement = ({
   ...rest
 }) => {
   const { data = {} } = element;
-  const { provider_url, column } = data;
+  const {
+    provider_url,
+    column,
+    specifier,
+    textTemplate,
+    placeholder = '-',
+  } = data;
 
   // key={index}
   return (
@@ -23,6 +29,9 @@ export const DataEntityElement = ({
             <DataConnectedValue
               url={provider_url}
               column={column}
+              specifier={specifier}
+              textTemplate={textTemplate}
+              placeholder={placeholder}
               key={uuid()}
             />
           ))}
