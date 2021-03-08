@@ -12,12 +12,18 @@
     "plone",
     "react"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:eea/volto-slate-dataentity.git"
+  "dependencies": {
+    "volto-datablocks": "github:eea/volto-datablocks#2.0.0"
   },
   "devDependencies": {
     "release-it": "*"
+  },
+  "addons": [
+    "volto-datablocks"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:eea/volto-slate-dataentity.git"
   },
   "scripts": {
     "release": "release-it",
