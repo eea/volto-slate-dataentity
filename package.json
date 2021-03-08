@@ -13,7 +13,7 @@
     "react"
   ],
   "dependencies": {
-    "volto-datablocks": "github:eea/volto-datablocks#2.0.0"
+    "volto-datablocks": "eea/volto-datablocks#master"
   },
   "devDependencies": {
     "release-it": "*"
