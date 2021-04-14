@@ -18,9 +18,10 @@ export const DataEntityElement = ({
     specifier,
     textTemplate,
     placeholder = '-',
+    withReadmore = false,
+    maxChars = null,
   } = data;
 
-  // key={index}
   return (
     <>
       {mode === 'view' ? (
@@ -33,6 +34,8 @@ export const DataEntityElement = ({
               textTemplate={textTemplate}
               placeholder={placeholder}
               key={uuid()}
+              collapsable={withReadmore}
+              collapseLimit={maxChars}
             />
           ))}
         </span>

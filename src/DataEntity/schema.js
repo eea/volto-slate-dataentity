@@ -14,6 +14,14 @@ export const DataEntitySchema = {
         'placeholder',
       ],
     },
+    {
+      id: 'readmore',
+      title: 'Readmore',
+      fields: [
+        'withReadmore',
+        'maxChars',
+      ],
+    },
   ],
   properties: {
     provider_url: {
@@ -45,6 +53,15 @@ export const DataEntitySchema = {
     },
     placeholder: {
       title: 'Placeholder',
+    },
+    withReadmore: {
+      title: 'Enabled',
+      type: 'boolean',
+      default: false,
+    },
+    maxChars: {
+      title: 'Max chars',
+      type: 'number',
     },
   },
   required: ['description'],
