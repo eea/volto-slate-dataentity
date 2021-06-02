@@ -17,10 +17,12 @@
     "url": "git@github.com:eea/volto-slate-dataentity.git"
   },
   "addons": [
-    "volto-datablocks"
+    "volto-slate:asDefault",
+    "@eeacms/volto-datablocks"
   ],
   "dependencies": {
-    "volto-datablocks": "eea/volto-datablocks#master"
+    "@eeacms/volto-datablocks": "^2.0.2",
+    "volto-slate": "^2.6.0"
   },
   "devDependencies": {
     "release-it": "*",
