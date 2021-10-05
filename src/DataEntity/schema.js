@@ -17,10 +17,7 @@ export const DataEntitySchema = {
     {
       id: 'readmore',
       title: 'Readmore',
-      fields: [
-        'withReadmore',
-        'maxChars',
-      ],
+      fields: ['withReadmore', 'maxChars'],
     },
   ],
   properties: {
