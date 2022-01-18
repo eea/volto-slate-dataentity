@@ -15,9 +15,10 @@ export const DataEntityElement = ({
   const {
     provider_url,
     column,
+    row,
     specifier,
     textTemplate,
-    placeholder = '-',
+    placeholder = ' ',
     withReadmore = false,
     maxChars = null,
   } = data;
@@ -28,14 +29,16 @@ export const DataEntityElement = ({
         <span {...rest}>
           {wrapInlineMarkupText(children, (c) => (
             <DataConnectedValue
-              url={provider_url}
-              column={column}
-              specifier={specifier}
-              textTemplate={textTemplate}
-              placeholder={placeholder}
-              key={uuid()}
               collapsable={withReadmore}
               collapseLimit={maxChars}
+              column={column}
+              row={row}
+              data={{ data_query: data.data_query }}
+              key={uuid()}
+              placeholder={placeholder}
+              specifier={specifier}
+              textTemplate={textTemplate}
+              url={provider_url}
             />
           ))}
         </span>
