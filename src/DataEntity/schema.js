@@ -9,6 +9,7 @@ export const DataEntitySchema = {
       fields: [
         'provider_url',
         'column',
+        'row',
         'specifier',
         'textTemplate',
         'placeholder',
@@ -19,14 +20,24 @@ export const DataEntitySchema = {
       title: 'Readmore',
       fields: ['withReadmore', 'maxChars'],
     },
+    {
+      id: 'data_query',
+      title: 'Data query',
+      fields: ['data_query'],
+    },
   ],
   properties: {
     provider_url: {
-      widget: 'pick_provider',
       title: 'Data provider',
+      widget: 'object_by_path',
     },
     column: {
       title: 'Column',
+      choices: [],
+    },
+    row: {
+      title: 'Row',
+      default: 0,
       choices: [],
     },
     specifier: {
@@ -59,6 +70,10 @@ export const DataEntitySchema = {
     maxChars: {
       title: 'Max chars',
       type: 'number',
+    },
+    data_query: {
+      title: 'Data query',
+      widget: 'data_query',
     },
   },
   required: ['description'],

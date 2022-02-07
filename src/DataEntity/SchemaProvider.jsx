@@ -1,14 +1,21 @@
 import React from 'react';
-import { connectBlockToProviderData } from '@eeacms/volto-datablocks/hocs';
+import { compose } from 'redux';
+import { connectToProviderData } from '@eeacms/volto-datablocks/hocs';
 
 class SchemaProvider extends React.Component {
-  getSchema = (schema) => {
+  getSchema = (schema = {}) => {
     if (!this.props.provider_data) return schema;
     const provider_data = this.props.provider_data || {};
+    const column = this.props.data.column;
 
-    const choices = Array.from(
+    const columns = Array.from(
       new Set(Object.keys(provider_data || {})),
     ).map((n) => [n, n]);
+
+    const rows =
+      column && provider_data[column]
+        ? provider_data[column].map((value, index) => [index, value])
+        : [];
 
     return {
       ...schema,
@@ -16,7 +23,11 @@ class SchemaProvider extends React.Component {
         ...schema.properties,
         column: {
           ...schema.properties.column,
-          choices,
+          choices: columns,
+        },
+        row: {
+          ...schema.properties.row,
+          choices: rows,
         },
       },
     };
@@ -28,4 +39,10 @@ class SchemaProvider extends React.Component {
   }
 }
 
-export default connectBlockToProviderData(SchemaProvider);
+export default compose(
+  connectToProviderData((props) => {
+    return {
+      provider_url: props.data.provider_url,
+    };
+  }),
+)(SchemaProvider);
