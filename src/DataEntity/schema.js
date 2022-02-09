@@ -23,7 +23,11 @@ export const DataEntitySchema = {
     {
       id: 'data_query',
       title: 'Data query',
-      fields: ['data_query'],
+      fields: [
+        'has_data_query_by_context',
+        'has_data_query_by_provider',
+        'data_query',
+      ],
     },
   ],
   properties: {
@@ -33,11 +37,13 @@ export const DataEntitySchema = {
     },
     column: {
       title: 'Column',
+      description: 'Column to be shown',
       choices: [],
     },
     row: {
       title: 'Row',
-      default: 0,
+      description:
+        'Value of the column. By default the first value will be used.',
       choices: [],
     },
     specifier: {
@@ -71,10 +77,24 @@ export const DataEntitySchema = {
       title: 'Max chars',
       type: 'number',
     },
+    has_data_query_by_context: {
+      title: 'Has data_query by context',
+      type: 'boolean',
+      description:
+        'This flag will denote whether or not the connector will be filtered by data_query applied on the page',
+      defaultValue: true,
+    },
+    has_data_query_by_provider: {
+      title: 'Has data_query by provider',
+      type: 'boolean',
+      description:
+        'This flag will denote whether or not the connector will be filtered by data_query applied on the connector itself',
+      defaultValue: true,
+    },
     data_query: {
       title: 'Data query',
       widget: 'data_query',
     },
   },
-  required: ['description'],
+  required: [],
 };
