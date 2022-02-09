@@ -14,7 +14,10 @@ class SchemaProvider extends React.Component {
 
     const rows =
       column && provider_data[column]
-        ? provider_data[column].map((value, index) => [`row-${index + 1}`, value])
+        ? provider_data[column].map((value, index) => [
+            `row-${index + 1}`,
+            value,
+          ])
         : [];
 
     return {
