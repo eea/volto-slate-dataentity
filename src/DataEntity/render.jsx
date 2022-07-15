@@ -1,5 +1,6 @@
 import React from 'react';
 import { Popup } from 'semantic-ui-react';
+import { VisibilitySensor } from '@eeacms/volto-datablocks/components';
 import { DataConnectedValue } from '@eeacms/volto-datablocks/Utils';
 import { wrapInlineMarkupText } from 'volto-slate/utils';
 import { v4 as uuid } from 'uuid';
@@ -28,18 +29,20 @@ export const DataEntityElement = ({
       {mode === 'view' ? (
         <span {...rest}>
           {wrapInlineMarkupText(children, (c) => (
-            <DataConnectedValue
-              collapsable={withReadmore}
-              collapseLimit={maxChars}
-              column={column}
-              row={row}
-              data={{ data_query: data.data_query }}
-              key={uuid()}
-              placeholder={placeholder}
-              specifier={specifier}
-              textTemplate={textTemplate}
-              url={provider_url}
-            />
+            <VisibilitySensor Placeholder={() => <span>&nbsp;</span>}>
+              <DataConnectedValue
+                collapsable={withReadmore}
+                collapseLimit={maxChars}
+                column={column}
+                row={row}
+                data={{ data_query: data.data_query }}
+                key={uuid()}
+                placeholder={placeholder}
+                specifier={specifier}
+                textTemplate={textTemplate}
+                url={provider_url}
+              />
+            </VisibilitySensor>
           ))}
         </span>
       ) : (
