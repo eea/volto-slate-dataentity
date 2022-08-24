@@ -1,22 +1,22 @@
-import { defineMessages } from "react-intl"; // , defineMessages
-import { makeInlineElementPlugin } from "@plone/volto-slate/elementEditor";
-import { DataEntitySchema } from "./schema";
-import { withDataEntity } from "./extensions";
-import { DATAENTITY } from "../constants";
-import { DataEntityElement } from "./render";
-import SchemaProvider from "./SchemaProvider";
-import collectionSVG from "@plone/volto/icons/collection.svg";
+import { defineMessages } from 'react-intl'; // , defineMessages
+import { makeInlineElementPlugin } from '@plone/volto-slate/elementEditor';
+import { DataEntitySchema } from './schema';
+import { withDataEntity } from './extensions';
+import { DATAENTITY } from '../constants';
+import { DataEntityElement } from './render';
+import SchemaProvider from './SchemaProvider';
+import collectionSVG from '@plone/volto/icons/collection.svg';
 
-import "./styles.less";
+import './styles.less';
 
 const messages = defineMessages({
   edit: {
-    id: "Edit data entity",
-    defaultMessage: "Edit data entity",
+    id: 'Edit data entity',
+    defaultMessage: 'Edit data entity',
   },
   delete: {
-    id: "Remove data entity",
-    defaultMessage: "Remove data entity",
+    id: 'Remove data entity',
+    defaultMessage: 'Remove data entity',
   },
 });
 
@@ -31,7 +31,7 @@ export default function install(config) {
     extensions: [withDataEntity],
     hasValue: (data) => !!data.provider_url,
     toolbarButtonIcon: collectionSVG,
-    title: "Data entity",
+    title: 'Data entity',
     messages,
   };
   const [installDataEntityEditor] = makeInlineElementPlugin(opts);
@@ -39,10 +39,10 @@ export default function install(config) {
 
   const { slate } = config.settings;
 
-  slate.toolbarButtons = [...(slate.toolbarButtons || []), "dataentity"];
+  slate.toolbarButtons = [...(slate.toolbarButtons || []), 'dataentity'];
   slate.expandedToolbarButtons = [
     ...(slate.expandedToolbarButtons || []),
-    "dataentity",
+    'dataentity',
   ];
 
   return config;

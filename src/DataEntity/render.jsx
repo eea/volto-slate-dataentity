@@ -1,9 +1,9 @@
-import React from "react";
-import { Popup } from "semantic-ui-react";
-import { VisibilitySensor } from "@eeacms/volto-datablocks/components";
-import { DataConnectedValue } from "@eeacms/volto-datablocks/Utils";
-import { wrapInlineMarkupText } from "@plone/volto-slate/utils";
-import { v4 as uuid } from "uuid";
+import React from 'react';
+import { Popup } from 'semantic-ui-react';
+import { VisibilitySensor } from '@eeacms/volto-datablocks/components';
+import { DataConnectedValue } from '@eeacms/volto-datablocks/Utils';
+import { wrapInlineMarkupText } from '@plone/volto-slate/utils';
+import { v4 as uuid } from 'uuid';
 
 export const DataEntityElement = ({
   attributes,
@@ -19,14 +19,14 @@ export const DataEntityElement = ({
     row,
     specifier,
     textTemplate,
-    placeholder = " ",
+    placeholder = ' ',
     withReadmore = false,
     maxChars = null,
   } = data;
 
   return (
     <>
-      {mode === "view" ? (
+      {mode === 'view' ? (
         <span {...rest}>
           {wrapInlineMarkupText(children, (c) => (
             <VisibilitySensor Placeholder={() => <span>&nbsp;</span>}>
