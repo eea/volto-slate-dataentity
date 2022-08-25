@@ -5,7 +5,7 @@ pipeline {
         GIT_NAME = "volto-slate-dataentity"
         NAMESPACE = "@eeacms"
         SONARQUBE_TAGS = "volto.eea.europa.eu,biodiversity.europa.eu,forest.eea.europa.eu,water.europa.eu-freshwater"
-        DEPENDENCIES = "volto-slate @eeacms/volto-datablocks"
+        DEPENDENCIES = "@eeacms/volto-datablocks"
         VOLTO = "alpha"
     }
 
