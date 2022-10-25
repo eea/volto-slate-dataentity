@@ -2,7 +2,7 @@ import React from 'react';
 import { Popup } from 'semantic-ui-react';
 import { VisibilitySensor } from '@eeacms/volto-datablocks/components';
 import { DataConnectedValue } from '@eeacms/volto-datablocks/Utils';
-import { wrapInlineMarkupText } from 'volto-slate/utils';
+import { wrapInlineMarkupText } from '@plone/volto-slate/utils';
 import { v4 as uuid } from 'uuid';
 
 export const DataEntityElement = ({

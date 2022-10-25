@@ -1,5 +1,5 @@
 import { defineMessages } from 'react-intl'; // , defineMessages
-import { makeInlineElementPlugin } from 'volto-slate/components/ElementEditor';
+import { makeInlineElementPlugin } from '@plone/volto-slate/elementEditor';
 import { DataEntitySchema } from './schema';
 import { withDataEntity } from './extensions';
 import { DATAENTITY } from '../constants';
