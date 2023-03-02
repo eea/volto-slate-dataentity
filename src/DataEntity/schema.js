@@ -13,6 +13,8 @@ export const DataEntitySchema = {
         'specifier',
         'textTemplate',
         'placeholder',
+        'isLink',
+        'linkTitle',
       ],
     },
     {
@@ -67,6 +69,14 @@ export const DataEntitySchema = {
     },
     placeholder: {
       title: 'Placeholder',
+    },
+    isLink: {
+      title: 'Is link',
+      type: 'boolean',
+      default: false,
+    },
+    linkTitle: {
+      title: 'Link title',
     },
     withReadmore: {
       title: 'Enabled',

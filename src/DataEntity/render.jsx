@@ -22,6 +22,8 @@ export const DataEntityElement = ({
     placeholder = ' ',
     withReadmore = false,
     maxChars = null,
+    isLink,
+    linkTitle,
   } = data;
 
   return (
@@ -41,6 +43,7 @@ export const DataEntityElement = ({
                 specifier={specifier}
                 textTemplate={textTemplate}
                 url={provider_url}
+                link={isLink ? { title: linkTitle } : null}
               />
             </VisibilitySensor>
           ))}
