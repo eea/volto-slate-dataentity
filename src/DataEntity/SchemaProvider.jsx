@@ -1,5 +1,6 @@
 import React from 'react';
 import { compose } from 'redux';
+import { BodyClass } from '@plone/volto/helpers';
 import { connectToProviderData } from '@eeacms/volto-datablocks/hocs';
 
 class SchemaProvider extends React.Component {
@@ -39,7 +40,15 @@ class SchemaProvider extends React.Component {
 
   render() {
     const { editSchema, children } = this.props;
-    return children(this.getSchema(editSchema));
+    const form = () => {
+      return (
+        <>
+          <BodyClass className="with-dataentity-sidebar" />
+          {children(this.getSchema(editSchema))}
+        </>
+      );
+    };
+    return form();
   }
 }
 
