@@ -6,7 +6,7 @@ pipeline {
         NAMESPACE = "@eeacms"
         SONARQUBE_TAGS = "volto.eea.europa.eu,biodiversity.europa.eu,forest.eea.europa.eu,water.europa.eu-freshwater,water.europa.eu-marine"
         DEPENDENCIES = "@eeacms/volto-datablocks"
-        VOLTO = ""
+        VOLTO = "16"
     }
 
   stages {
