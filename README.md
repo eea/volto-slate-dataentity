@@ -18,7 +18,7 @@
 
 ## Features
 
-Demo GIF
+[Slate dataentity](https://raw.githubusercontent.com/eea/volto-slate-dataentity/master/docs/volto-slate-dataentity.gif)
 
 ## Getting started
 
