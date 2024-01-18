@@ -18,7 +18,7 @@
 
 ## Features
 
-Demo GIF
+[Slate dataentity](https://raw.githubusercontent.com/eea/volto-slate-dataentity/master/docs/volto-slate-dataentity.gif)
 
 ## Getting started
 
@@ -48,6 +48,10 @@ Demo GIF
 ### Add volto-slate-dataentity to your Volto project
 
 1. Make sure you have a [Plone backend](https://plone.org/download) up-and-running at http://localhost:8080/Plone
+
+   ```Bash
+   docker compose up backend
+   ```
 
 1. Start Volto frontend
 
