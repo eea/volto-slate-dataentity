@@ -9,9 +9,9 @@ class SchemaProvider extends React.Component {
     const provider_data = this.props.provider_data || {};
     const column = this.props.data.column;
 
-    const columns = Array.from(
-      new Set(Object.keys(provider_data || {})),
-    ).map((n) => [n, n]);
+    const columns = Array.from(new Set(Object.keys(provider_data || {}))).map(
+      (n) => [n, n],
+    );
 
     const rows =
       column && provider_data[column]
