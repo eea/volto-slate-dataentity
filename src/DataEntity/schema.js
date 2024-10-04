@@ -35,7 +35,7 @@ export const DataEntitySchema = {
   properties: {
     provider_url: {
       title: 'Data provider',
-      widget: 'object_by_path',
+      widget: 'internal_url',
     },
     column: {
       title: 'Column',

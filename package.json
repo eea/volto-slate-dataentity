@@ -1,6 +1,6 @@
 {
   "name": "@eeacms/volto-slate-dataentity",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "@eeacms/volto-slate-dataentity: Volto add-on",
   "main": "src/index.js",
   "author": "European Environment Agency: IDM2 A-Team",
@@ -28,7 +28,8 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "md5": "^2.3.0"
+    "md5": "^2.3.0",
+    "dotenv": "^16.3.2"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json}": [
