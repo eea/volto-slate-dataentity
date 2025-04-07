@@ -46,7 +46,7 @@ export const DataEntityElement = ({
                 textTemplate={textTemplate}
                 url={provider_url}
                 link={isLink ? { title: linkTitle } : null}
-                animation={animation}
+                animatedCounter={animation}
               />
             </VisibilitySensor>
           ))}
