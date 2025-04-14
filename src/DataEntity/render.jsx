@@ -10,9 +10,11 @@ export const DataEntityElement = ({
   children,
   element,
   mode,
+  extras = {},
   ...rest
 }) => {
   const { data = {} } = element;
+  const { animation = {} } = extras;
   const {
     provider_url,
     column,
@@ -44,6 +46,7 @@ export const DataEntityElement = ({
                 textTemplate={textTemplate}
                 url={provider_url}
                 link={isLink ? { title: linkTitle } : null}
+                animatedCounter={animation}
               />
             </VisibilitySensor>
           ))}
