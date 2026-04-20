@@ -1,6 +1,6 @@
 import React from 'react';
 import { compose } from 'redux';
-import { BodyClass } from '@plone/volto/helpers';
+import BodyClass from '@plone/volto/helpers/BodyClass/BodyClass';
 import { connectToProviderData } from '@eeacms/volto-datablocks/hocs';
 
 class SchemaProvider extends React.Component {
