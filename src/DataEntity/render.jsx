@@ -1,9 +1,8 @@
-import React from 'react';
+import { useCallback } from 'react';
 import { Popup } from 'semantic-ui-react';
 import { VisibilitySensor } from '@eeacms/volto-datablocks/components';
-import { DataConnectedValue } from '@eeacms/volto-datablocks/Utils';
+import { DataConnectedValue, Skeleton } from '@eeacms/volto-datablocks/Utils';
 import { wrapInlineMarkupText } from '@plone/volto-slate/utils';
-import { v4 as uuid } from 'uuid';
 
 export const DataEntityElement = ({
   attributes,
@@ -16,53 +15,63 @@ export const DataEntityElement = ({
   const { data = {} } = element;
   const { animation = {} } = extras;
   const {
+    placeholder = ' ',
     provider_url,
+    allowedParams,
     column,
     row,
     specifier,
     textTemplate,
-    placeholder = ' ',
     withReadmore = false,
     maxChars = null,
     isLink,
     linkTitle,
+    skeletonWidth = '40px',
+    skeleton = false,
   } = data;
 
+  const Placeholder = useCallback(
+    () => (skeleton ? <Skeleton width={skeletonWidth} /> : <span>&nbsp;</span>),
+    [skeleton, skeletonWidth],
+  );
+
+  if (mode === 'view') {
+    return wrapInlineMarkupText(children, () => (
+      <span {...rest}>
+        <VisibilitySensor
+          id={`dataentity-${provider_url}`}
+          Placeholder={Placeholder}
+        >
+          <DataConnectedValue
+            collapsable={withReadmore}
+            collapseLimit={maxChars}
+            column={column}
+            row={row}
+            data={{ allowedParams, data_query: data.data_query }}
+            placeholder={placeholder}
+            specifier={specifier}
+            textTemplate={textTemplate}
+            url={provider_url}
+            link={isLink ? { title: linkTitle } : null}
+            animatedCounter={animation}
+            skeleton={skeleton}
+            skeletonWidth={skeletonWidth}
+          />
+        </VisibilitySensor>
+      </span>
+    ));
+  }
+
   return (
-    <>
-      {mode === 'view' ? (
-        <span {...rest}>
-          {wrapInlineMarkupText(children, () => (
-            <VisibilitySensor Placeholder={() => <span>&nbsp;</span>}>
-              <DataConnectedValue
-                collapsable={withReadmore}
-                collapseLimit={maxChars}
-                column={column}
-                row={row}
-                data={{ data_query: data.data_query }}
-                key={uuid()}
-                placeholder={placeholder}
-                specifier={specifier}
-                textTemplate={textTemplate}
-                url={provider_url}
-                link={isLink ? { title: linkTitle } : null}
-                animatedCounter={animation}
-              />
-            </VisibilitySensor>
-          ))}
+    <Popup
+      content={data.entity}
+      header="Data entity"
+      position="bottom left"
+      trigger={
+        <span {...attributes} className="data-entity data-entity-edit-node">
+          {children}
         </span>
-      ) : (
-        <Popup
-          content={data.entity}
-          header="Data entity"
-          position="bottom left"
-          trigger={
-            <span {...attributes} className="data-entity data-entity-edit-node">
-              {children}
-            </span>
-          }
-        />
-      )}
-    </>
+      }
+    />
   );
 };

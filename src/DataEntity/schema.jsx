@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const DataEntitySchema = {
   title: 'Data entity',
   fieldsets: [
@@ -8,11 +6,14 @@ export const DataEntitySchema = {
       title: 'Default',
       fields: [
         'provider_url',
+        'allowedParams',
         'column',
         'row',
         'specifier',
         'textTemplate',
         'placeholder',
+        'skeleton',
+        'skeletonWidth',
         'isLink',
         'linkTitle',
       ],
@@ -36,6 +37,12 @@ export const DataEntitySchema = {
     provider_url: {
       title: 'Data provider',
       widget: 'internal_url',
+    },
+    allowedParams: {
+      title: 'Allowed params',
+      type: 'array',
+      creatable: true,
+      items: { choices: [] },
     },
     column: {
       title: 'Column',
@@ -69,6 +76,18 @@ export const DataEntitySchema = {
     },
     placeholder: {
       title: 'Placeholder',
+    },
+    skeleton: {
+      title: 'Skeleton',
+      description: 'Show skeleton placeholder while data is loading',
+      type: 'boolean',
+      default: false,
+    },
+    skeletonWidth: {
+      title: 'Skeleton width',
+      description: 'Width of the skeleton placeholder (e.g. 40px, 50%)',
+      type: 'string',
+      default: '40px',
     },
     isLink: {
       title: 'Is link',
