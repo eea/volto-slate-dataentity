@@ -18,6 +18,7 @@ export const DataEntityElement = ({
     placeholder = ' ',
     provider_url,
     allowedParams,
+    waitForParams,
     column,
     row,
     specifier,
@@ -47,7 +48,7 @@ export const DataEntityElement = ({
             collapseLimit={maxChars}
             column={column}
             row={row}
-            data={{ allowedParams, data_query: data.data_query }}
+            data={{ allowedParams, waitForParams, data_query: data.data_query }}
             placeholder={placeholder}
             specifier={specifier}
             textTemplate={textTemplate}

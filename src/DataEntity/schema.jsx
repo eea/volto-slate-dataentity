@@ -7,6 +7,7 @@ export const DataEntitySchema = {
       fields: [
         'provider_url',
         'allowedParams',
+        'waitForParams',
         'column',
         'row',
         'specifier',
@@ -43,6 +44,13 @@ export const DataEntitySchema = {
       type: 'array',
       creatable: true,
       items: { choices: [] },
+    },
+    waitForParams: {
+      title: 'Wait for filters before loading data',
+      description:
+        'When enabled, data is fetched only after all allowed filter parameters are available.',
+      type: 'boolean',
+      default: false,
     },
     column: {
       title: 'Column',
