@@ -6,7 +6,7 @@ pipeline {
   environment {
     GIT_NAME = "volto-slate-dataentity"
     NAMESPACE = "@eeacms"
-    SONARQUBE_TAGS = "volto.eea.europa.eu,biodiversity.europa.eu,forest.eea.europa.eu,water.europa.eu-freshwater,water.europa.eu-marine"
+    SONARQUBE_TAGS = "volto.eea.europa.eu,biodiversity.europa.eu,forest.eea.europa.eu,water.europa.eu-freshwater,water.europa.eu-marine,climate-adapt.eea.europa.eu"
     DEPENDENCIES = "@eeacms/volto-datablocks"
     BACKEND_PROFILES = "eea.kitkat:testing"
     BACKEND_ADDONS = ""
