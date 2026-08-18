@@ -6,7 +6,7 @@ pipeline {
   environment {
     GIT_NAME = "volto-slate-dataentity"
     NAMESPACE = "@eeacms"
-    SONARQUBE_TAGS = "volto.eea.europa.eu,biodiversity.europa.eu,forest.eea.europa.eu,water.europa.eu-freshwater,water.europa.eu-marine"
+    SONARQUBE_TAGS = "volto.eea.europa.eu,biodiversity.europa.eu,forest.eea.europa.eu,water.europa.eu-freshwater,water.europa.eu-marine,climate-adapt.eea.europa.eu"
     DEPENDENCIES = "@eeacms/volto-datablocks"
     BACKEND_PROFILES = "eea.kitkat:testing"
     BACKEND_ADDONS = ""
@@ -241,15 +241,15 @@ pipeline {
           def scannerHome = tool 'SonarQubeScanner'
           def nodeJS = tool 'NodeJS'
           if (env.CHANGE_ID) {
-            env.sonarParams = " -Dsonar.pullrequest.base=${env.CHANGE_TARGET} -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH} -Dsonar.pullrequest.key=${env.CHANGE_ID} "
+            env.sonarParams = " -Dsonar.pullrequest.base='${env.CHANGE_TARGET}' -Dsonar.pullrequest.branch='${env.CHANGE_BRANCH}' -Dsonar.pullrequest.key='${env.CHANGE_ID}' "
           }
           else {
-            env.sonarParams = " -Dsonar.branch.name=${env.BRANCH_NAME}"
+            env.sonarParams = " -Dsonar.branch.name='${env.BRANCH_NAME}'"
           }
           withSonarQubeEnv('Sonarqube') {
             sh '''sed -i "s#/app/src/addons/${GIT_NAME}/##g" xunit-reports-current/coverage/lcov.info'''
             sh '''sed -i "s#src/addons/${GIT_NAME}/##g" xunit-reports-current/coverage/lcov.info'''
-            sh "export PATH=${scannerHome}/bin:${nodeJS}/bin:$PATH; sonar-scanner -Dsonar.javascript.lcov.reportPaths=./xunit-reports-current/coverage/lcov.info,./cypress-coverage-current/coverage/lcov.info -Dsonar.sources=./src -Dsonar.projectKey=$GIT_NAME -Dsonar.projectName=$GIT_NAME -Dsonar.projectVersion=\$(jq -r '.version' package.json) ${env.sonarParams}"
+            sh "export PATH=${scannerHome}/bin:${nodeJS}/bin:$PATH; sonar-scanner -Dsonar.javascript.lcov.reportPaths=./xunit-reports-current/coverage/lcov.info,./cypress-coverage-current/coverage/lcov.info -Dsonar.sources=./src -Dsonar.projectKey=\"${GIT_NAME}\" -Dsonar.projectName=\"${GIT_NAME}\" -Dsonar.projectVersion=\$(jq '.version' package.json) ${env.sonarParams}"
             sh '''try=5; while [ \$try -gt 0 ]; do curl -s -XPOST -u "${SONAR_AUTH_TOKEN}:" "${SONAR_HOST_URL}api/project_tags/set?project=${GIT_NAME}&tags=${SONARQUBE_TAGS}" > set_tags_result; if [ \$(grep -ic error set_tags_result ) -eq 0 ]; then try=0; else cat set_tags_result; echo "... Will retry"; sleep 15; try=\$(( \$try - 1 )); fi; done'''
           }
         }
